@@ -21,11 +21,9 @@ node {
     }
 
     stage('Push image') {
-      steps {
         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
           sh 'docker push danstaines/friendlyhello:latest'
         }
-    }
 }
 }
