@@ -1,4 +1,4 @@
-node("docker") {
+node {
     docker.withRegistry('gitlab.ebi.ac.uk:5005', 'ebigitlab') {
     
         stage "build"
