@@ -23,7 +23,7 @@ node {
     stage('Push image') {
         withCredentials([usernamePassword(credentialsId: 'ebigitlab', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword} gitlab.ebi.ac.uk:5005"
-          sh 'docker push dstaines/friendlyhello:latest'
+          sh 'docker push gitlab.ebi.ac.uk:5005/dstaines/friendlyhello:latest'
         }
 }
 }
