@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("dstaines/ensembl-prodinf/friendlyhello")
+        app = docker.build("danstaines/ensembl-prodinf/friendlyhello")
     }
 
     stage('Test image') {
