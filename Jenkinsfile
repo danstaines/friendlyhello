@@ -1,5 +1,5 @@
 node {
-    docker.withRegistry('gitlab.ebi.ac.uk:5005', 'ebigitlab') {
+    docker.withRegistry('https://gitlab.ebi.ac.uk:5005', 'ebigitlab') {
     
         stage "build"
         def app = docker.build "friendlyhello"
