@@ -11,7 +11,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        app = docker.build("dstaines/friendlyhello")
+        app = docker.build("dstaines/friendlyhello/ensembl-prodinf")
     }
 
     stage('Test image') {
@@ -23,7 +23,7 @@ node {
     stage('Push image') {
         withCredentials([usernamePassword(credentialsId: 'ebigitlab', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword} gitlab.ebi.ac.uk:5005"
-          sh 'docker push gitlab.ebi.ac.uk:5005/dstaines/friendlyhello:latest'
+          sh 'docker push gitlab.ebi.ac.uk:5005/dstaines/ensembl-prodinf/friendlyhello:latest'
         }
 }
 }
